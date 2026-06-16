@@ -1,5 +1,11 @@
 # 🔗 Clean Links
 
+<h2>📸 Dashboard</h2>
+
+<p align="center">
+  <img src="assets/popup.png" alt="Clean Links Dashboard" width="350">
+</p>
+
 **Clean Links** is a privacy-focused Chrome extension that removes unnecessary tracking parameters from URLs before they can follow you around the web.
 
 No more URL mambo jumbo. 🧹
