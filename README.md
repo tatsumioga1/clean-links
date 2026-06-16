@@ -1,44 +1,46 @@
 # 🔗 Clean Links
 
-<h2>📸 Dashboard</h2>
+A privacy-focused Chrome extension that removes tracking parameters from URLs before they can follow you around the web.
+
+No more URL mambo jumbo.
+
+---
+
+## 📸 Dashboard
 
 <p align="center">
   <img src="assets/popup.png" alt="Clean Links Dashboard" width="350">
 </p>
 
-**Clean Links** is a privacy-focused Chrome extension that removes unnecessary tracking parameters from URLs before they can follow you around the web.
-
-No more URL mambo jumbo. 🧹
-
 ---
 
 ## ✨ Features
 
-### 🛡️ Multi-layer URL Protection
+### 🛡️ Multi-Layer URL Protection
 
-Clean Links protects your browsing with several layers:
+Clean Links protects your browsing through multiple layers:
 
-- ⚔️ Capture-phase click interception
-- 🔗 Pre-click link cleaning
-- 👁️ Dynamic link monitoring
-- 🐉 SPA navigation interception
-- 🧹 Current URL emergency cleanup
+- Capture-phase click interception
+- Pre-click link cleaning
+- Dynamic link monitoring
+- SPA navigation interception
+- Current URL cleanup
 
 ---
 
 ## 🧬 Smart Rule Engine
 
-Clean Links removes known tracking parameters while preserving the parts of a URL that actually matter.
+Clean Links removes known tracking parameters while preserving parameters that are required for functionality.
 
-**Example:**
+### Example
 
-Before:
+**Before**
 
 ```
-https://www.google.com/search?q=weather&source=hp&gs_psrp=abc123&oq=wea
+https://www.google.com/search?q=weather&source=hp&oq=wea&gs_psrp=abc123
 ```
 
-After:
+**After**
 
 ```
 https://www.google.com/search?q=weather
@@ -57,11 +59,12 @@ Works across websites:
 
 ---
 
-## 🔍 Google Search Intelligence
+## 🔍 Google Search Cleanup
 
-Removes Google-specific tracking and internal parameters:
+Removes Google-specific tracking and telemetry parameters:
 
 - `source`
+- `sourceid`
 - `sxsrf`
 - `sca_esv`
 - `ei`
@@ -69,17 +72,41 @@ Removes Google-specific tracking and internal parameters:
 - `ved`
 - `gs_lp`
 - `gs_psrp`
+- `gs_lcrp`
 - `sclient`
 - `oq`
 - `fbs`
 - `sa`
 
-While preserving important parameters like:
+Preserves important parameters such as:
 
-- `q` (your search)
+- `q` (search query)
 - `hl` (language)
 - `udm` (search mode)
+- `ie` (encoding)
 - `newwindow` (user preference)
+
+---
+
+## 🤖 Google AI Mode Intelligence
+
+Clean Links includes tested support for Google AI Mode URLs.
+
+### Removed
+
+- `mtid`
+- `ntc`
+- `aep`
+- `mstk`
+- `csuir`
+
+### Preserved
+
+- `q`
+- `udm`
+- `newwindow`
+
+All AI Mode parameters were manually tested to ensure AI Mode continues functioning correctly after cleanup.
 
 ---
 
@@ -89,15 +116,15 @@ Removes:
 
 - `si`
 
-Example:
+### Example
 
-Before:
+**Before**
 
 ```
 https://youtube.com/watch?v=abc123&si=tracking-data
 ```
 
-After:
+**After**
 
 ```
 https://youtube.com/watch?v=abc123
@@ -105,69 +132,64 @@ https://youtube.com/watch?v=abc123
 
 ---
 
-## 📊 Privacy Dashboard
+## 📊 Statistics Dashboard
 
-Clean Links includes a built-in dashboard showing:
+Clean Links tracks:
 
-- 🏆 Total trackers removed
-- 👾 Most common tracking parameters
-- 🌎 Domains that send the most tracking data
-- 🔔 Live toolbar badge counter
+- Total trackers removed
+- Most common trackers
+- Most common tracking domains
+- Toolbar badge counter
 
 ---
 
-## 🏗️ Architecture
-
-Built using:
+## 🏗️ Built With
 
 - Manifest V3
-- Chrome Service Workers
-- Content Scripts
+- Chrome Extensions API
 - MutationObserver
 - Chrome Storage API
-- Message Passing
-- History API interception
+- Service Workers
+- Content Scripts
+- History API Interception
 
 ---
 
 ## 🚀 Installation
 
-### Install manually
+### Clone the repository
 
-1. Download or clone this repository:
-
-```
+```bash
 git clone https://github.com/tatsumioga1/clean-links.git
 ```
 
-2. Open Chrome and go to:
+### Load into Chrome
+
+1. Open:
 
 ```
 chrome://extensions/
 ```
 
-3. Enable **Developer mode**
+2. Enable **Developer Mode**
 
-4. Click:
+3. Click **Load unpacked**
 
-```
-Load unpacked
-```
+4. Select the Clean Links folder
 
-5. Select the `clean-links` folder
-
-6. Done! 🔗
+5. Enjoy cleaner URLs 🔗
 
 ---
 
-## 🧪 Development Philosophy
+## 🧪 Philosophy
 
 Clean Links follows a simple rule:
 
-> Keep what describes what I want.  
-> Remove what describes how I got there.
+> Keep what describes the user's intent.
+>
+> Remove what describes the website's observation.
 
-A good URL cleaner should act like a scalpel, not a chainsaw.
+A good URL cleaner should behave like a scalpel, not a chainsaw.
 
 ---
 
@@ -179,17 +201,34 @@ MIT License
 
 ## 🐉 Project History
 
-What began as a simple idea:
+### v1.0
 
-> "Why does Google put so much mambo jumbo in my URLs?"
+- Basic URL cleanup
 
-Evolved into:
+### v1.3
 
-- v1.0 — Basic URL cleanup
-- v1.3 — Badge counter and statistics
-- v1.5 — Pre-click cleaning
-- v1.6 — Tracker intelligence dashboard
-- v2.0 — Dragon Slayer Edition 🐉
+- Statistics dashboard
+- Toolbar badge counter
+
+### v1.5
+
+- Pre-click protection
+
+### v2.0 — Dragon Slayer Edition
+
+- Click interception
+- SPA protection
+- Dynamic link monitoring
+
+### v2.0.3 — AI Mode Intelligence
+
+Added support for Google AI Mode URL cleanup:
+
+- `mtid`
+- `ntc`
+- `aep`
+- `mstk`
+- `csuir`
 
 ---
 
