@@ -16,6 +16,7 @@ const rules = {
 
         "google.com": [
             "source",
+            "sourceid",
             "sxsrf",
             "sca_esv",
             "ei",
@@ -23,6 +24,7 @@ const rules = {
             "ved",
             "gs_lp",
             "gs_psrp",
+            "gs_lcrp",
             "sclient",
             "oq",
             "fbs",
@@ -32,13 +34,14 @@ const rules = {
         "youtube.com": [
             "si"
         ]
+
     }
 
 };
 
 
 
-// Decide if a parameter must be destroyed 😈
+// 🧬 Decide what survives
 function shouldRemove(hostname, parameter) {
 
     if (rules.universal.includes(parameter)) {
@@ -75,7 +78,7 @@ function shouldRemove(hostname, parameter) {
 
 
 
-// ⚔️ The Universal Sword
+// ⚔️ The Universal Dragon Slayer Sword
 function cleanAnyURL(input) {
 
     try {
@@ -113,8 +116,7 @@ function cleanAnyURL(input) {
         };
 
 
-    }
-    catch (error) {
+    } catch (error) {
 
         return null;
 
@@ -124,14 +126,13 @@ function cleanAnyURL(input) {
 
 
 
-// 🏆 Report our victories
+// 🏆 Send victories to the Hall of Fame
 function reportRemoval(result) {
 
     if (
         result &&
         result.removedTrackers.length > 0
     ) {
-
 
         chrome.runtime.sendMessage({
 
@@ -151,7 +152,7 @@ function reportRemoval(result) {
 
 
 
-// 🔗 Clean a link
+// 🔗 Clean links before travel
 function cleanLink(link) {
 
     if (
@@ -190,7 +191,6 @@ function cleanLink(link) {
         }
 
 
-        // Mark as inspected
         link.dataset.cleanLinks = "done";
 
     }
@@ -199,14 +199,12 @@ function cleanLink(link) {
 
 
 
-// 🐉 NEW FINAL SHIELD
-// Intercept clicks before websites do
+// 🛡️ Final Guardian: Hear clicks before websites
 function interceptClicks() {
 
     document.addEventListener(
         "click",
         (event) => {
-
 
             const link =
                 event.target.closest("a[href]");
@@ -228,7 +226,6 @@ function interceptClicks() {
                 result.removedTrackers.length > 0
             ) {
 
-
                 link.href =
                     result.cleanedURL;
 
@@ -245,12 +242,13 @@ function interceptClicks() {
 
         },
 
-        true // Capture phase 😈
+        true
+
     );
 
 }
 
-// 🔍 Initial scan of the page
+// 👁 Scout the existing battlefield
 function cleanExistingLinks() {
 
     document
@@ -261,7 +259,7 @@ function cleanExistingLinks() {
 
 
 
-// 👁 Watch only newly created links
+// 🕷 Watch for newly spawned links
 function watchForNewLinks() {
 
 
@@ -275,7 +273,6 @@ function watchForNewLinks() {
                 for (const node of mutation.addedNodes) {
 
 
-                    // Ignore text nodes and comments
                     if (node.nodeType !== 1) {
 
                         continue;
@@ -283,7 +280,7 @@ function watchForNewLinks() {
                     }
 
 
-                    // If the node itself is a link
+                    // The node itself is a link
                     if (
                         node.matches &&
                         node.matches("a[href]")
@@ -295,7 +292,7 @@ function watchForNewLinks() {
                     }
 
 
-                    // Or if it contains links
+                    // The node contains links
                     if (node.querySelectorAll) {
 
 
@@ -328,7 +325,7 @@ function watchForNewLinks() {
 
 
 
-// 🐉 Slay Single Page App dragons
+// 🐉 Slay Single Page Application dragons
 function interceptHistoryNavigation() {
 
 
@@ -436,7 +433,7 @@ function interceptHistoryNavigation() {
 
 
 
-// 🧹 Final emergency cleanup
+// 🧹 Emergency purification ritual
 function cleanCurrentPage() {
 
 
@@ -475,26 +472,28 @@ function cleanCurrentPage() {
 
 // ⚔️ ACTIVATE THE GUARDIAN ⚔️
 
-// First, stand at the gate
+
+// First line of defense:
 interceptClicks();
 
 
-// Then prepare the dragon slayer
+// Second line:
 interceptHistoryNavigation();
 
 
-// Clean the battlefield
+// Clean the current battlefield:
 cleanCurrentPage();
 
 
-// Inspect all existing paths
+// Inspect all existing paths:
 cleanExistingLinks();
 
 
-// Keep watching for new enemies
+// Keep watch forever:
 watchForNewLinks();
 
 
 
-// 🔒 The sacred seal of the ancient scroll
+// 🔒 The ancient seal.
+// Remove this and chaos will return.
 })();
