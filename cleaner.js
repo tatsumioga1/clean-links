@@ -28,7 +28,14 @@ const rules = {
             "sclient",
             "oq",
             "fbs",
-            "sa"
+            "sa",
+
+            // Google AI Mode
+            "mtid",
+            "ntc",
+            "aep",
+            "mstk",
+            "csuir"
         ],
 
         "youtube.com": [
