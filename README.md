@@ -232,4 +232,85 @@ Added support for Google AI Mode URL cleanup:
 
 ---
 
+## 🚀 Roadmap
+
+Clean Links is evolving beyond a traditional URL cleaner.
+
+The long-term goal is not simply to maintain a growing list of known tracking parameters, but to help identify and understand new tracking techniques as they appear.
+
+### v2.1 — Tracker Discovery Mode
+
+Planned features:
+
+- Detect unknown URL parameters
+- Track how often unknown parameters appear
+- Show which domains use them
+- Surface high-confidence tracker candidates
+- Allow users to investigate new parameters
+
+Example:
+
+```
+Unknown Parameters
+
+mstk
+Seen: 47 times
+
+csuir
+Seen: 22 times
+
+fr2
+Seen: 18 times
+```
+
+### v2.2 — Parameter Inspector
+
+Planned features:
+
+- Analyze the current URL
+- Explain why parameters are kept or removed
+- Categorize parameters as:
+
+```
+KEEP
+✓ q
+✓ p
+✓ udm
+
+REMOVE
+✖ fbclid
+✖ sourceid
+
+UNKNOWN
+? xyz_abc
+```
+
+### v2.3 — Custom Rules
+
+Planned features:
+
+- Add custom parameters without editing code
+- Local rule management
+- Import and export rule sets
+
+### Future Goals
+
+- Improved support for additional search engines
+- Better detection of telemetry and referral parameters
+- Community-driven rule contributions
+- Stronger privacy protections while preserving website functionality
+
+### What Clean Links Will Not Do
+
+Clean Links aims to preserve functionality and user intent.
+
+It will not blindly remove unknown parameters or attempt to break website features.
+
+The guiding principle remains:
+
+> Keep what describes the user's intent.
+> Remove what describes the website's observation.
+
+---
+
 Made with ☕, curiosity, and a healthy dislike of unnecessary URL tracking.
