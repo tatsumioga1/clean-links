@@ -309,6 +309,7 @@ It will not blindly remove unknown parameters or attempt to break website featur
 The guiding principle remains:
 
 > Keep what describes the user's intent.
+>
 > Remove what describes the website's observation.
 
 ---
