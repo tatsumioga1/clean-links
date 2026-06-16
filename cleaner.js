@@ -40,8 +40,14 @@ const rules = {
 
         "youtube.com": [
             "si"
-        ]
+        ],
 
+        "yahoo.com": [
+            "fr",
+            "fr2",
+            "mkr",
+            "fp"
+        ],
     }
 
 };
