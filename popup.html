@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 300px;
+    margin: 0;
+    padding: 18px;
+    background: #111827;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.status {
+    background: #052e16;
+    border: 1px solid #22c55e;
+    color: #4ade80;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.counter {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.counter-title {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.counter-number {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+.section {
+    margin-top: 15px;
+}
+
+.section-title {
+    color: #94a3b8;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #374151;
+    font-size: 13px;
+}
+
+button {
+    width: 100%;
+    margin-top: 16px;
+    background: #1e293b;
+    color: white;
+    border: 1px solid #374151;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #334155;
+}
+
+.footer {
+    margin-top: 15px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="title">
+    🔗 Clean Links
+</div>
+
+
+<div class="status">
+    🟢 Active
+</div>
+
+
+<div class="counter">
+
+    <div class="counter-title">
+        Total Kills
+    </div>
+
+    <div class="counter-number" id="count">
+        0
+    </div>
+
+</div>
+
+
+<div class="section">
+
+    <div class="section-title">
+        🏆 Top Enemies
+    </div>
+
+    <div id="trackers">
+        No data yet
+    </div>
+
+</div>
+
+
+<div class="section">
+
+    <div class="section-title">
+        🌎 Top Hunting Grounds
+    </div>
+
+    <div id="domains">
+        No data yet
+    </div>
+
+</div>
+
+
+<button id="resetButton">
+    Reset Counter
+</button>
+
+
+<div class="footer">
+    Your links, cleaner & safer.
+</div>
+
+
+<script src="popup.js"></script>
+
+
+</body>
+
+</html>
