@@ -134,8 +134,13 @@ function cleanAnyURL(input) {
 
         const removedTrackers = [];
 
+        const keys = [];
 
-        for (const key of [...url.searchParams.keys()]) {
+        url.searchParams.forEach((value, key) => {
+            keys.push(key);
+        });
+
+        for (const key of keys) {
 
             if (shouldRemove(url.hostname, key)) {
 
@@ -161,9 +166,9 @@ function cleanAnyURL(input) {
 
     } catch (error) {
 
-        return null;
+    return null;
 
-    }
+}
 
 }
 
@@ -177,17 +182,25 @@ function reportRemoval(result) {
         result.removedTrackers.length > 0
     ) {
 
-        chrome.runtime.sendMessage({
+        try {
 
-            type: "TRACKERS_REMOVED",
+            chrome.runtime.sendMessage({
 
-            amount: result.removedTrackers.length,
+                type: "TRACKERS_REMOVED",
 
-            trackers: result.removedTrackers,
+                amount: result.removedTrackers.length,
 
-            domain: result.hostname
+                trackers: result.removedTrackers,
 
-        });
+                domain: result.hostname
+
+            });
+
+        } catch (error) {
+
+            // Firefox-safe fallback
+
+        }
 
     }
 
@@ -479,11 +492,20 @@ function interceptHistoryNavigation() {
 // 🧹 Emergency purification ritual
 function cleanCurrentPage() {
 
+    console.log(
+        "CURRENT URL:",
+        window.location.href
+    );
 
     const result =
         cleanAnyURL(
             window.location.href
         );
+
+    console.log(
+        "RESULT:",
+        result
+    );
 
 
     if (
@@ -526,7 +548,6 @@ interceptHistoryNavigation();
 
 // Clean the current battlefield:
 cleanCurrentPage();
-
 
 // Inspect all existing paths:
 cleanExistingLinks();
