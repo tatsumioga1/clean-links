@@ -29,6 +29,7 @@ const rules = {
             "oq",
             "fbs",
             "sa",
+            "ogbl"
 
             // Google AI Mode
             "mtid",
