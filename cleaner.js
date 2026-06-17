@@ -35,7 +35,11 @@ const rules = {
             "ntc",
             "aep",
             "mstk",
-            "csuir"
+            "csuir",
+            "oi",
+            "noiga",
+            "ct",
+            "stick"
         ],
 
         "youtube.com": [
