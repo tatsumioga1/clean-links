@@ -48,6 +48,11 @@ const rules = {
             "mkr",
             "fp"
         ],
+
+        "amazon.in": [
+            "ref",
+            "ref_"
+        ]
     }
 
 };
