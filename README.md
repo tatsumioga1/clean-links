@@ -1,5 +1,9 @@
 # 🔗 Clean Links
 
+![Version](https://img.shields.io/badge/version-v2.0.3-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-orange)
+
 A privacy-focused Chrome extension that removes tracking parameters from URLs before they can follow you around the web.
 
 No more URL mambo jumbo.
@@ -30,7 +34,7 @@ Clean Links protects your browsing through multiple layers:
 
 ## 🧬 Smart Rule Engine
 
-Clean Links removes known tracking parameters while preserving parameters that are required for functionality.
+Clean Links removes known tracking parameters while preserving parameters required for functionality.
 
 ### Example
 
@@ -78,21 +82,21 @@ Removes Google-specific tracking and telemetry parameters:
 - `fbs`
 - `sa`
 
-Preserves important parameters such as:
+Preserves:
 
-- `q` (search query)
-- `hl` (language)
-- `udm` (search mode)
-- `ie` (encoding)
-- `newwindow` (user preference)
+- `q`
+- `hl`
+- `udm`
+- `ie`
+- `newwindow`
 
 ---
 
-## 🤖 Google AI Mode Intelligence
+## 🤖 Google AI Mode Cleanup
 
-Clean Links includes tested support for Google AI Mode URLs.
+Tested support for Google AI Mode URLs.
 
-### Removed
+Removed:
 
 - `mtid`
 - `ntc`
@@ -100,13 +104,108 @@ Clean Links includes tested support for Google AI Mode URLs.
 - `mstk`
 - `csuir`
 
-### Preserved
+Preserved:
 
 - `q`
 - `udm`
 - `newwindow`
 
-All AI Mode parameters were manually tested to ensure AI Mode continues functioning correctly after cleanup.
+---
+
+## 🎨 Google Doodle Cleanup
+
+Removes Doodle-specific telemetry and metadata:
+
+- `oi`
+- `noiga`
+- `ct`
+- `stick`
+
+Example:
+
+**Before**
+
+```
+https://www.google.com/search?newwindow=1&q=FIFA+World+Cup+2026&oi=ddle&noiga=1&ct=460195071&stick=...
+```
+
+**After**
+
+```
+https://www.google.com/search?newwindow=1&q=FIFA+World+Cup+2026
+```
+
+---
+
+## 🟣 Yahoo Search Cleanup
+
+Removes:
+
+- `fr`
+- `fr2`
+- `mkr`
+- `fp`
+
+Example:
+
+**Before**
+
+```
+https://search.yahoo.com/search?p=world+cup&fr=yfp-t-s&fr2=...&mkr=7&fp=1
+```
+
+**After**
+
+```
+https://search.yahoo.com/search?p=world+cup
+```
+
+---
+
+## 📦 Amazon Cleanup
+
+Removes referral tracking parameters:
+
+- `ref`
+- `ref_`
+
+Example:
+
+**Before**
+
+```
+https://www.amazon.in/dp/B0G3X263DY?ref=ppx_yo2ov_dt_b_fed_asin_title
+```
+
+**After**
+
+```
+https://www.amazon.in/dp/B0G3X263DY
+```
+
+---
+
+## 🛒 Flipkart Cleanup
+
+Removes:
+
+- `pid`
+- `lid`
+- `marketplace`
+
+Example:
+
+**Before**
+
+```
+https://www.flipkart.com/product/p/itm123?pid=ABC&lid=XYZ&marketplace=FLIPKART
+```
+
+**After**
+
+```
+https://www.flipkart.com/product/p/itm123
+```
 
 ---
 
@@ -116,7 +215,7 @@ Removes:
 
 - `si`
 
-### Example
+Example:
 
 **Before**
 
@@ -134,11 +233,11 @@ https://youtube.com/watch?v=abc123
 
 ## 📊 Statistics Dashboard
 
-Clean Links tracks:
+Tracks:
 
 - Total trackers removed
 - Most common trackers
-- Most common tracking domains
+- Most common domains
 - Toolbar badge counter
 
 ---
@@ -157,13 +256,13 @@ Clean Links tracks:
 
 ## 🚀 Installation
 
-### Clone the repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/tatsumioga1/clean-links.git
 ```
 
-### Load into Chrome
+### Load Into Chrome
 
 1. Open:
 
@@ -177,7 +276,7 @@ chrome://extensions/
 
 4. Select the Clean Links folder
 
-5. Enjoy cleaner URLs 🔗
+5. Enjoy cleaner URLs
 
 ---
 
@@ -190,6 +289,169 @@ Clean Links follows a simple rule:
 > Remove what describes the website's observation.
 
 A good URL cleaner should behave like a scalpel, not a chainsaw.
+
+---
+
+## 🚀 Roadmap
+
+Clean Links started as a simple URL cleaner.
+
+The long-term goal is to evolve beyond maintaining a static list of tracking parameters and help identify new tracking techniques as they appear.
+
+### 🔬 v2.1 — Tracker Discovery Mode
+
+Planned features:
+
+- Detect unknown URL parameters
+- Count occurrences
+- Track which domains use them
+- Surface suspicious parameters
+- Build a local tracker intelligence database
+
+Example:
+
+```
+Unknown Parameters
+
+mstk
+Seen: 47 times
+
+csuir
+Seen: 22 times
+
+fr2
+Seen: 18 times
+```
+
+---
+
+### 🔎 v2.2 — URL Inspector
+
+Analyze the current URL and explain exactly what Clean Links is doing.
+
+Example:
+
+```
+KEEP
+✓ q
+✓ p
+✓ udm
+
+REMOVE
+✖ sourceid
+✖ fbclid
+
+UNKNOWN
+? xyz_123
+```
+
+Planned features:
+
+- Current URL analysis
+- Parameter explanations
+- Removal reasoning
+- Unknown parameter identification
+
+---
+
+### ⚙️ v2.3 — Custom Rules
+
+Planned features:
+
+- Add custom parameters
+- Remove custom parameters
+- Domain-specific rules
+- Import/export rule sets
+- Local configuration backups
+
+---
+
+### 🌍 Future Goals
+
+- Better support for search engines
+- Better support for e-commerce websites
+- Improved referral tracking detection
+- Community-driven rule contributions
+- Smarter tracker discovery heuristics
+- Stronger privacy protections while preserving functionality
+
+---
+
+### 🚫 What Clean Links Will Not Do
+
+Clean Links aims to preserve functionality while improving privacy.
+
+It will not:
+
+- Blindly remove unknown parameters
+- Break website functionality
+- Remove authentication tokens
+- Remove parameters required for navigation
+
+The guiding principle remains:
+
+> Keep what describes the user's intent.
+>
+> Remove what describes the website's observation.
+
+---
+
+## 🐉 Tracker Codex
+
+### Google
+
+- source
+- sourceid
+- sxsrf
+- sca_esv
+- ei
+- iflsig
+- ved
+- gs_lp
+- gs_psrp
+- gs_lcrp
+- sclient
+- oq
+- fbs
+- sa
+- mtid
+- ntc
+- aep
+- mstk
+- csuir
+- oi
+- noiga
+- ct
+- stick
+
+### Yahoo
+
+- fr
+- fr2
+- mkr
+- fp
+
+### Amazon
+
+- ref
+- ref_
+
+### Flipkart
+
+- pid
+- lid
+- marketplace
+
+### YouTube
+
+- si
+
+### Universal
+
+- utm_*
+- fbclid
+- gclid
+- msclkid
 
 ---
 
@@ -220,97 +482,17 @@ MIT License
 - SPA protection
 - Dynamic link monitoring
 
-### v2.0.3 — AI Mode Intelligence
+### v2.0.3 — Intelligence Update
 
-Added support for Google AI Mode URL cleanup:
+Added support for:
 
-- `mtid`
-- `ntc`
-- `aep`
-- `mstk`
-- `csuir`
+- Google AI Mode
+- Google Doodles
+- Yahoo Search
+- Amazon referral cleanup
+- Flipkart tracking cleanup
 
----
-
-## 🚀 Roadmap
-
-Clean Links is evolving beyond a traditional URL cleaner.
-
-The long-term goal is not simply to maintain a growing list of known tracking parameters, but to help identify and understand new tracking techniques as they appear.
-
-### v2.1 — Tracker Discovery Mode
-
-Planned features:
-
-- Detect unknown URL parameters
-- Track how often unknown parameters appear
-- Show which domains use them
-- Surface high-confidence tracker candidates
-- Allow users to investigate new parameters
-
-Example:
-
-```
-Unknown Parameters
-
-mstk
-Seen: 47 times
-
-csuir
-Seen: 22 times
-
-fr2
-Seen: 18 times
-```
-
-### v2.2 — Parameter Inspector
-
-Planned features:
-
-- Analyze the current URL
-- Explain why parameters are kept or removed
-- Categorize parameters as:
-
-```
-KEEP
-✓ q
-✓ p
-✓ udm
-
-REMOVE
-✖ fbclid
-✖ sourceid
-
-UNKNOWN
-? xyz_abc
-```
-
-### v2.3 — Custom Rules
-
-Planned features:
-
-- Add custom parameters without editing code
-- Local rule management
-- Import and export rule sets
-
-### Future Goals
-
-- Improved support for additional search engines
-- Better detection of telemetry and referral parameters
-- Community-driven rule contributions
-- Stronger privacy protections while preserving website functionality
-
-### What Clean Links Will Not Do
-
-Clean Links aims to preserve functionality and user intent.
-
-It will not blindly remove unknown parameters or attempt to break website features.
-
-The guiding principle remains:
-
-> Keep what describes the user's intent.
->
-> Remove what describes the website's observation.
+Expanded tracker codex and laid the groundwork for Tracker Discovery Mode.
 
 ---
 
