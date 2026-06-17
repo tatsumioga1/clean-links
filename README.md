@@ -364,6 +364,32 @@ Planned features:
 - Import/export rule sets
 - Local configuration backups
 
+### ⚡ v2.4 — Performance & Architecture
+
+As Clean Links grows, performance becomes increasingly important.
+
+Rather than changing programming languages, the focus will be on improving architecture and reducing unnecessary work.
+
+Planned improvements:
+
+- Process only newly-added links instead of rescanning entire pages
+- Avoid reprocessing previously cleaned URLs
+- Smarter MutationObserver filtering
+- Reduce unnecessary DOM operations
+- Improve handling of large, dynamic websites
+- Optimize tracker discovery storage and lookups
+
+Research areas:
+
+- DeclarativeNetRequest integration where appropriate
+- Browser-native optimizations
+- More efficient rule matching
+- Lower memory usage on long browsing sessions
+
+Goal:
+
+Keep Clean Links lightweight, responsive, and scalable while supporting a growing tracker intelligence database.
+
 ---
 
 ### 🌍 Future Goals
