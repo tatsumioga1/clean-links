@@ -1,8 +1,9 @@
 # 🔗 Clean Links
 
-![Version](https://img.shields.io/badge/version-v2.0.3-blue)
+![Version](https://img.shields.io/badge/version-v2.1.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-orange)
+![Chrome](https://img.shields.io/badge/Chrome-Supported-brightgreen)
+![Firefox](https://img.shields.io/badge/Firefox-Supported-orange)
 
 A privacy-focused Chrome extension that removes tracking parameters from URLs before they can follow you around the web.
 
@@ -137,6 +138,30 @@ https://www.google.com/search?newwindow=1&q=FIFA+World+Cup+2026
 
 ---
 
+---
+
+## 📧 Google Workspace Cleanup
+
+Removes navigation telemetry:
+
+- `ogbl`
+
+Example:
+
+**Before**
+
+```text
+https://mail.google.com/mail/u/0/?ogbl#inbox
+```
+
+**After**
+
+```text
+https://mail.google.com/mail/u/0/#inbox
+```
+
+---
+
 ## 🟣 Yahoo Search Cleanup
 
 Removes:
@@ -164,10 +189,19 @@ https://search.yahoo.com/search?p=world+cup
 
 ## 📦 Amazon Cleanup
 
-Removes referral tracking parameters:
+Removes referral, recommendation, and telemetry parameters:
 
 - `ref`
 - `ref_`
+- `pf_rd_r`
+- `pf_rd_p`
+- `pd_rd_w`
+- `pd_rd_wg`
+- `pd_rd_r`
+- `pd_rd_i`
+- `content-id`
+- `sbo`
+- `psc`
 
 Example:
 
@@ -242,6 +276,16 @@ Tracks:
 
 ---
 
+## 🌍 Browser Support
+
+| Browser | Status |
+|----------|----------|
+| Chrome | ✅ Supported |
+| Chromium | ✅ Supported |
+| Edge | ✅ Supported |
+| Brave | ✅ Supported |
+| Firefox | ✅ Supported |
+
 ## 🏗️ Built With
 
 - Manifest V3
@@ -298,7 +342,7 @@ Clean Links started as a simple URL cleaner.
 
 The long-term goal is to evolve beyond maintaining a static list of tracking parameters and help identify new tracking techniques as they appear.
 
-### 🔬 v2.1 — Tracker Discovery Mode
+### 🔬 v2.2 — Tracker Discovery Mode
 
 Planned features:
 
@@ -325,7 +369,7 @@ Seen: 18 times
 
 ---
 
-### 🔎 v2.2 — URL Inspector
+### 🔎 v2.3 — URL Inspector
 
 Analyze the current URL and explain exactly what Clean Links is doing.
 
@@ -354,7 +398,7 @@ Planned features:
 
 ---
 
-### ⚙️ v2.3 — Custom Rules
+### ⚙️ v2.4 — Custom Rules
 
 Planned features:
 
@@ -364,7 +408,7 @@ Planned features:
 - Import/export rule sets
 - Local configuration backups
 
-### ⚡ v2.4 — Performance & Architecture
+### ⚡ v2.5 — Performance & Architecture
 
 As Clean Links grows, performance becomes increasingly important.
 
@@ -400,6 +444,15 @@ Keep Clean Links lightweight, responsive, and scalable while supporting a growin
 - Community-driven rule contributions
 - Smarter tracker discovery heuristics
 - Stronger privacy protections while preserving functionality
+
+🦊 Firefox Improvements
+
+  Future Firefox enhancements:
+
+  - Unified codebase across Chrome and Firefox
+  - Firefox Add-ons Store publication
+  - Cross-browser automated testing
+  - Browser-specific optimization where needed
 
 ---
 
@@ -461,6 +514,15 @@ The guiding principle remains:
 
 - ref
 - ref_
+- pf_rd_r
+- pf_rd_p
+- pd_rd_w
+- pd_rd_wg
+- pd_rd_r
+- pd_rd_i
+- content-id
+- sbo
+- psc
 
 ### Flipkart
 
@@ -508,14 +570,22 @@ MIT License
 - SPA protection
 - Dynamic link monitoring
 
-### v2.0.3 — Intelligence Update
+### v2.1.0 — Firefox Support & Tracker Expansion
+
+Added:
+
+- Firefox compatibility
+- Google Workspace cleanup
+- Expanded Amazon telemetry cleanup
+- Improved cross-browser URL handling
 
 Added support for:
 
 - Google AI Mode
 - Google Doodles
+- Google Workspace
 - Yahoo Search
-- Amazon referral cleanup
+- Amazon telemetry cleanup
 - Flipkart tracking cleanup
 
 Expanded tracker codex and laid the groundwork for Tracker Discovery Mode.
