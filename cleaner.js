@@ -52,6 +52,12 @@ const rules = {
         "amazon.in": [
             "ref",
             "ref_"
+        ],
+
+        "flipkart.com": [
+            "pid",
+            "lid",
+            "marketplace"
         ]
     }
 
